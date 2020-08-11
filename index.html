@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>ROV Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--
+  <script>
+    // 1. Require the installed module
+    const customTitlebar = require('custom-electron-titlebar');
+
+    // 2. Create the custom titlebar with your own settings
+    //    To make it work, we just need to provide the backgroundColor property
+    //    Other properties are optional.
+    let MyTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex('#000000'),
+        shadow: true,
+    });
+    MyTitleBar.updateTitle('IXAR ROV Dashboard');
+  </script>
+-->
+<nav class="navigation-bar">
+  <img class="logo" src="logo.png">
+  <a href="connect.html">CONNECT</a>
+  <a href="calib.html">CALIBRATION</a>
+  <a class="active" href="index.html">NAVIGATION</a>
+  <a href="sonar.html">SONAR</a>
+</nav>
+<div class="feed">
+  <h4>PRIMARY CAMERA FEED </h4>
+ <video width="700" height="300" controls>
+  <source src="video1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class = "feed2">
+  <h4>SECONDARY CAMERA FEED </h4> 
+  <video width="500" height="300" controls>
+    <source src="video2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+
+</div> 
+
+<div class="container">
+<div class="orientation-angle">
+  <h4>ORIENTATION ANGLES</h4>
+  <p>X: 233.0000</p>
+  <p>Y: 122.0000</p>
+  <p>Z: 213.0000</p>
+  <p>Roll: 132.0000</p>
+  <p>Pitch: 180.0000</p>
+  <p>Yaw: 321.0000</p>
+</div>
+<div class="positioning">
+  <p>Depth: 82.45m</p>
+  <p>Temp: 25.23C</p>
+  <p>Latitude: 43 23'N</p>
+  <p>Longitude: 122 12'E</p>
+</div>
+</div>
+</body>
+</html>

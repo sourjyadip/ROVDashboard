@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@700&display=swap');
+
+body {background-color: #1d2333;
+    font-family: 'Roboto', sans-serif;
+} /*background color */
+.navigation-bar {
+    width: 100%;  /* i'm assuming full width */
+    height: 50px; /* change it to desired width */
+    /*background-color: rgb(2, 4, 22);*/
+    background-image: linear-gradient(to right, rgb(11, 49, 83), rgb(2, 4, 22) ); /* change to desired color */
+    /*margin-top: 30px;*/
+}
+.logo {
+    float: left;
+    vertical-align: top;
+    width: 80px;
+    height: 50px;
+    margin-right: 5px;
+    margin-top: 0px;    /* if you want it vertically middle of the navbar. */
+}
+.navigation-bar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 3px;
+  }
+  
+/* Change the color of links on hover */
+.navigation-bar a:hover {
+  background-color: rgb(92, 111, 117);
+  border-radius: 25px;
+}
+
+/* Add a color to the active/current link */
+.navigation-bar a.active {
+  background-color: #000000;
+  color: white;
+  border-radius: 25px;
+}
+/*for the video feed */
+.feed { 
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    float: left;
+    background-color: rgb(2, 4, 22);
+}
+/*for positioning system */
+.feed2 {
+    text-align: center;
+    color: white;
+    margin-top: 40px; /*adjust later*/
+    margin-left: 750px;
+    background-color: rgb(2, 4, 22);
+}
+.container{
+  width: 50%;
+  display: flex;
+}
+.orientation-angle {
+  background-color: rgb(2, 4, 22);
+  color:white;
+  height: 230px;
+  width: 200px;
+  /*border-radius: 15px;*/
+  margin-top: 10px;
+}
+.orientation-angle p{
+  margin-left: 5px;
+  font-size: small;
+  text-align: center;
+}
+.orientation-angle h4{
+  text-align: center;
+}
+.positioning {
+  background-color: rgb(2, 4, 22);
+  color: white;
+  height: 170px;
+  width: 200px;
+  /*border-radius: 15px;*/
+  font-size: medium;
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-left: 30%;
+  flex-grow: 1;
+}
