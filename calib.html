@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>ROV Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="startTime(); draw(0);">
+  <!--
+  <script>
+    // 1. Require the installed module
+    const customTitlebar = require('custom-electron-titlebar');
+
+    // 2. Create the custom titlebar with your own settings
+    //    To make it work, we just need to provide the backgroundColor property
+    //    Other properties are optional.
+    let MyTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex('#000000'),
+        shadow: true,
+    });
+    MyTitleBar.updateTitle('IXAR ROV Dashboard');
+  </script>
+-->
+<nav class="navigation-bar">
+  <!--<img class="logo" src="logo.png">-->
+  <a href="connect.html">CONNECT</a>
+  <a class="active" href="calib.html">CALIBRATION</a>
+  <a href="index.html">NAVIGATION</a>
+  <a href="sonar.html">SONAR</a>
+</nav>
+
+</body>
+</html>

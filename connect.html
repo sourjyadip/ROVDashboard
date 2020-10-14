@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>ROV Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    <script src="speedometer.js"></script>
+</head>
+<body onload="startTime(); draw(0);">
+  <!--
+  <script>
+    // 1. Require the installed module
+    const customTitlebar = require('custom-electron-titlebar');
+
+    // 2. Create the custom titlebar with your own settings
+    //    To make it work, we just need to provide the backgroundColor property
+    //    Other properties are optional.
+    let MyTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex('#000000'),
+        shadow: true,
+    });
+    MyTitleBar.updateTitle('IXAR ROV Dashboard');
+  </script>
+-->
+<nav class="navigation-bar">
+  <!--<img class="logo" src="logo.png">-->
+  <a class="active" href="connect.html">CONNECT</a>
+  <a href="calib.html">CALIBRATION</a>
+  <a href="index.html">NAVIGATION</a>
+  <a href="sonar.html">SONAR</a>
+</nav>
+
+</body>
+</html>

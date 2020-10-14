@@ -2,8 +2,26 @@
 <head>
   <title>ROV Dashboard</title>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    <script src="speedometer.js"></script>
 </head>
-<body>
+<body onload="startTime(); draw(0);">
   <!--
   <script>
     // 1. Require the installed module
@@ -20,7 +38,7 @@
   </script>
 -->
 <nav class="navigation-bar">
-  <img class="logo" src="logo.png">
+  <!--<img class="logo" src="logo.png">-->
   <a href="connect.html">CONNECT</a>
   <a href="calib.html">CALIBRATION</a>
   <a class="active" href="index.html">NAVIGATION</a>
@@ -35,29 +53,40 @@ Your browser does not support the video tag.
 </div>
 <div class = "feed2">
   <h4>SECONDARY CAMERA FEED </h4> 
-  <video width="500" height="300" controls>
+  <video width="500" height="320" controls>
     <source src="video2.mp4" type="video/mp4">
   Your browser does not support the video tag.
   </video>
 
-</div> 
-
+</div>
 <div class="container">
-<div class="orientation-angle">
-  <h4>ORIENTATION ANGLES</h4>
-  <p>X: 233.0000</p>
-  <p>Y: 122.0000</p>
-  <p>Z: 213.0000</p>
-  <p>Roll: 132.0000</p>
-  <p>Pitch: 180.0000</p>
-  <p>Yaw: 321.0000</p>
-</div>
-<div class="positioning">
-  <p>Depth: 82.45m</p>
-  <p>Temp: 25.23C</p>
-  <p>Latitude: 43 23'N</p>
-  <p>Longitude: 122 12'E</p>
-</div>
-</div>
+  <div class="orientation-angle">
+    <h4>ORIENTATION ANGLES</h4>
+    <div class="column1">
+    <p>X: 233.0000</p>
+    <p>Y: 122.0000</p>
+    <p>Z: 213.0000</p>
+    </div>
+    <div class="column2">
+    <p>ROLL: 132.0000</p>
+    <p>PITCH: 180.0000</p>
+    <p>YAW: 321.0000</p>
+    </div>
+  </div>
+  <div id="txt"></div>
+  <div class="positioning">
+    <p>DEPTH: 82.45m</p>
+    <p>TEMP: 25.23C</p>
+    <p>LATITUDE: 43 23'N</p>
+    <p>LONGITUDE: 122 12'E</p>
+  </div>
+  <canvas id="speedometer" width="440" height="220">Canvas not available.</canvas>
+  <!--  <div>
+          <form id="drawTemp">
+              <input type="text" id="txtSpeed" name="txtSpeed" value="20" maxlength="2"/>
+              <input type="button" value="Draw" onclick="drawWithInputValue();">
+          </form>
+      </div> -->
+  </div> 
 </body>
 </html>
