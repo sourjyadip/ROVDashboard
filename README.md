@@ -7,5 +7,5 @@ A desktop application dashboard for an underwater ROV using Electron JS.
   npm install\
 This will install ElectronJS as a dependency.\
 3.Run the command:\
-  npm start\
+  npm start
  
