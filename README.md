@@ -1,4 +1,5 @@
 # ROVDashboard
+[![node](https://img.shields.io/node/v/rclnodejs.svg)](https://nodejs.org/en/download/releases/)
 A desktop application dashboard for an underwater ROV using Electron JS.
 
 ## Usage
