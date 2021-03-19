@@ -1,0 +1,166 @@
+<html>
+<head>
+  <title>ROV Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    <script src="speedometer.js"></script>
+</head>
+<body onload="startTime(); draw(0);">
+  <!--
+  <script>
+    // 1. Require the installed module
+    const customTitlebar = require('custom-electron-titlebar');
+
+    // 2. Create the custom titlebar with your own settings
+    //    To make it work, we just need to provide the backgroundColor property
+    //    Other properties are optional.
+    let MyTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex('#000000'),
+        shadow: true,
+    });
+    MyTitleBar.updateTitle('IXAR ROV Dashboard');
+  </script>
+-->
+<nav class="navigation-bar">
+  <!--<img class="logo" src="logo.png">-->
+  <a href="connect.html">CONNECT</a>
+<a href="calib.html">THRUSTER CONFIG</a>
+  <a href="index.html">NAVIGATION</a>
+  <a href="sonar.html">SONAR</a>
+  <div class="dropdown">
+ <button class="dropbtn">VEHICLE SUMMARY</button>
+ <div class="dropdown-content">
+   <a href="summary.html">NETWORK SETUP</a>
+   <a class="active" href="sensorsummary.html">SUMMARY</a>
+   <a href="lights.html">LIGHTS</a>
+ </div>
+</nav>
+<h4 style="text-align:center">This is the summary of the settings of the vehicle</h4>
+
+
+<div id="first">
+  <div class="header">
+<p><em>Sensors</em></p>
+</div>
+<div class="column1">
+  <!--
+<p>Secondary,External</p>
+<p>Secondary,Tertiary</p>
+<p>Secondary,Tertiary</p>
+<p>Not Ready</p>-->
+<p>Compass1</p>
+<p>Compass2</p>
+<p>Compass3</p>
+<p>Compass4</p>
+</div>
+<div class="column2">
+<p>Secondary,External</p>
+<p>Secondary,Tertiary</p>
+<p>Secondary,Tertiary</p>
+<p>Not Ready</p>
+</div>
+    </div>
+    <div id="first">
+        <div class="header">
+      <p><em>Power</em></p>
+    </div>
+    <div class="column1">
+      <p>Batt1 monitor</p>
+      <p>Batt1 capacity</p>
+        <p>Batt2 monitor</p>
+      </div>
+      <div class="column2">
+      <p>Disabled</p>
+      <p>0mAh</p>
+        <p>Disabled</p>
+</div>
+    </div>
+    <div id="first">
+        <div class="header">
+    <p><em>Camera</em></p>
+  </div>
+  <div class="column1">
+    <p>Type of Gimbal</p>
+    <p>Tilt input channel</p>
+    <p>Panel input channel</p>
+    <p>Roll input channel</p>
+        </div>
+        <div class="column2">
+          <p>Servo</p>
+          <p>RC8</p>
+          <p>RC7</p>
+          <p>Disabled</p>
+        </div>
+      </div>
+        <div id="first">
+            <div class="header">
+        <p><em>Lights</em></p>
+      </div>
+      <div class="column1">
+        <p>Lights Output1</p>
+        <p>Lights Output2</p>
+         </div>
+         <div class="column2">
+           <p>Disabled</p>
+           <p>Disabled</p>
+         </div>
+       </div>
+
+         <div id="first">
+             <div class="header">
+         <p><em>Frame</em></p>
+       </div>
+       <div class="column1">
+         <p>Frame Type</p>
+       </div>
+       <div class="column2">
+         <p>Disabled</p>
+       </div>
+     </div>
+       <div id="second">
+           <div class="header">
+          <p><em>Safety</em></p>
+        </div>
+        <div class="column1">
+          <p>Arming Checks</p>
+          <p>GCS failsafe</p>
+          <p>Leak failsafe</p>
+          <p>Battery failsafe</p>
+
+          <p>EKF failsafe</p>
+          <p>Pilot Input failsafe</p>
+          <p>Int. Temperature failsafe</p>
+          <p>Int. Pressure failsafe</p>
+
+              </div>
+              <div class="column2">
+              <p>Disabled</p>
+              <p>Disabled</p>
+              <p>Disabled</p>
+              <p>None</p>
+              <p>Disabled</p>
+              <p>Disabled</p>
+              <p>Disabled</p>
+              <p>Disabled</p>
+</div>
+</div>
+    <div id="clear"></div>
+
+</body>
+</html>
