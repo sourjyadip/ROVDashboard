@@ -2,7 +2,34 @@
 <head>
   <title>ROV Dashboard</title>
   <link rel="stylesheet" href="styles.css">
-  <script>
+  <script src="sub.js"></script>
+  <script> 
+   'use strict';
+   
+/*
+const rclnodejs = require('rclnodejs');
+
+    rclnodejs.init().then(() => {
+    const node = rclnodejs.createNode('subscription_example_node');
+  
+    node.createSubscription('sensor_msgs/msg/Imu', '/rexrov/imu', (msg) => {
+           console.log(`Received message: ${typeof msg['orientation']}`, msg['orientation']);	   
+	    x = msg['orientation']['x'];
+	    y = msg['orientation']['y'];
+	    z = msg['orientation']['z'];
+	    w = msg['orientation']['w'];
+
+	    eu_angles = quat2eu(x,y,z,w);
+	    
+	    document.getElementById('roll').innerHTML = "Roll : " + eu_angles[0];
+            document.getElementById('pitch').innerHTML = "Pitch : " + eu_angles[1];
+	    document.getElementById('yaw').innerHTML = "Yaw : " + eu_angles[2]; 
+
+    });
+ 
+    rclnodejs.spin(node);
+ });
+ */                                       	  
     function startTime() {
       var today = new Date();
       var h = today.getHours();
@@ -68,9 +95,9 @@ Your browser does not support the video tag.
     <p>Z: 213.0000</p>
     </div>
     <div class="column2">
-    <p>ROLL: 132.0000</p>
-    <p>PITCH: 180.0000</p>
-    <p>YAW: 321.0000</p>
+    <p id="roll">roll</p>
+    <p id="pitch">pitch</p>
+    <p id="yaw">yaw</p>
     </div>
   </div>
   <div id="txt"></div>
