@@ -2,34 +2,7 @@
 <head>
   <title>ROV Dashboard</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="sub.js"></script>
-  <script> 
-   'use strict';
-   
-/*
-const rclnodejs = require('rclnodejs');
-
-    rclnodejs.init().then(() => {
-    const node = rclnodejs.createNode('subscription_example_node');
-  
-    node.createSubscription('sensor_msgs/msg/Imu', '/rexrov/imu', (msg) => {
-           console.log(`Received message: ${typeof msg['orientation']}`, msg['orientation']);	   
-	    x = msg['orientation']['x'];
-	    y = msg['orientation']['y'];
-	    z = msg['orientation']['z'];
-	    w = msg['orientation']['w'];
-
-	    eu_angles = quat2eu(x,y,z,w);
-	    
-	    document.getElementById('roll').innerHTML = "Roll : " + eu_angles[0];
-            document.getElementById('pitch').innerHTML = "Pitch : " + eu_angles[1];
-	    document.getElementById('yaw').innerHTML = "Yaw : " + eu_angles[2]; 
-
-    });
- 
-    rclnodejs.spin(node);
- });
- */                                       	  
+  <script>
     function startTime() {
       var today = new Date();
       var h = today.getHours();
@@ -67,9 +40,16 @@ const rclnodejs = require('rclnodejs');
 <nav class="navigation-bar">
   <!--<img class="logo" src="logo.png">-->
   <a href="connect.html">CONNECT</a>
-  <a href="calib.html">CALIBRATION</a>
+<a href="calib.html">THRUSTER CONFIG</a>
   <a class="active" href="index.html">NAVIGATION</a>
   <a href="sonar.html">SONAR</a>
+  <div class="dropdown">
+ <button class="dropbtn">VEHICLE SUMMARY</button>
+ <div class="dropdown-content">
+   <a href="summary.html">NETWORK SETUP</a>
+   <a href="sensorsummary.html">SUMMARY</a>
+   <a href="lights.html">LIGHTS</a>
+ </div>
 </nav>
 <div class="feed">
   <h4>PRIMARY CAMERA FEED </h4>
@@ -79,7 +59,7 @@ Your browser does not support the video tag.
 </video>
 </div>
 <div class = "feed2">
-  <h4>SECONDARY CAMERA FEED </h4> 
+  <h4>SECONDARY CAMERA FEED </h4>
   <video width="500" height="320" controls>
     <source src="video2.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -95,9 +75,9 @@ Your browser does not support the video tag.
     <p>Z: 213.0000</p>
     </div>
     <div class="column2">
-    <p id="roll">roll</p>
-    <p id="pitch">pitch</p>
-    <p id="yaw">yaw</p>
+    <p>ROLL: 132.0000</p>
+    <p>PITCH: 180.0000</p>
+    <p>YAW: 321.0000</p>
     </div>
   </div>
   <div id="txt"></div>
@@ -106,6 +86,7 @@ Your browser does not support the video tag.
     <p>TEMP: 25.23C</p>
     <p>LATITUDE: 43 23'N</p>
     <p>LONGITUDE: 122 12'E</p>
+
   </div>
   <canvas id="speedometer" width="440" height="220">Canvas not available.</canvas>
   <!--  <div>
@@ -114,6 +95,6 @@ Your browser does not support the video tag.
               <input type="button" value="Draw" onclick="drawWithInputValue();">
           </form>
       </div> -->
-  </div> 
+  </div>
 </body>
 </html>
