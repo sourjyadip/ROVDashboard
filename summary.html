@@ -1,0 +1,114 @@
+<html>
+<head>
+  <title>ROV Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    <script src="speedometer.js"></script>
+</head>
+<body onload="startTime(); draw(0);">
+  <!--
+  <script>
+    // 1. Require the installed module
+    const customTitlebar = require('custom-electron-titlebar');
+
+    // 2. Create the custom titlebar with your own settings
+    //    To make it work, we just need to provide the backgroundColor property
+    //    Other properties are optional.
+    let MyTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex('#000000'),
+        shadow: true,
+    });
+    MyTitleBar.updateTitle('IXAR ROV Dashboard');
+  </script>
+-->
+<nav class="navigation-bar">
+  <!--<img class="logo" src="logo.png">-->
+  <a href="connect.html">CONNECT</a>
+  <a href="calib.html">THRUSTER CONFIG</a>
+  <a href="index.html">NAVIGATION</a>
+  <a href="sonar.html">SONAR</a>
+  <div class="dropdown">
+ <button class="dropbtn">VEHICLE SUMMARY</button>
+ <div class="dropdown-content">
+   <a class="active" href="summary.html">NETWORK SETUP</a>
+   <a href="sensorsummary.html">SUMMARY</a>
+   <a href="lights.html">LIGHTS</a>
+ </div>
+</nav>
+<h4 style="text-align:center">General Settings</h4>
+<div class="container">
+
+
+  <form>
+
+    <label for="name">Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+
+
+    <label for="type">Type</label>
+    <select id="type" name="type">
+      <option value="australia">Serial</option>
+      <option value="canada">UDP</option>
+      <option value="usa">TCP</option>
+        <option value="usa">Log Replay</option>
+  </select>
+        <input type="checkbox" id="autoconnect" name="autoconnect" value="autoconnect">
+<label for="autoconnect">Automatically Connect on Startup</label><br>
+<input type="checkbox" id="latency" name="latency" value="latency">
+<label for="latency">High Latency</label><br>
+
+
+
+
+
+  </form>
+</div>
+<h4 style="text-align:center">Serial Link Settings</h4>
+<div class="container">
+
+
+  <form>
+
+    <label for="name">Serial Port: No Serial Ports Available</label>
+<!-- <input type="text" id="fname" name="firstname" placeholder="Your name..">
+-->
+
+
+    <label for="type">Baud Rate</label>
+    <select id="type" name="type">
+      <option value="2400">2400</option>
+      <option value="4800">4800</option>
+      <option value="9600">9600</option>
+        <option value="19200">19200</option>
+        <option value="38400">38400</option>
+        <option value="57600">57600</option>
+        <option value="115200">115200</option>
+        <option value="230400">230400</option>
+        <option value="4608000">4608000</option>
+  </select>
+</form>
+</div>
+<div class="container">
+  <form>
+  <input type="submit" value="Submit" >
+</form>
+</div>
+</body>
+</html>
