@@ -2,6 +2,7 @@
 <head>
   <title>ROV Dashboard</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="sub.js"></script>
   <script>
     function startTime() {
       var today = new Date();
@@ -75,9 +76,9 @@ Your browser does not support the video tag.
     <p>Z: 213.0000</p>
     </div>
     <div class="column2">
-    <p>ROLL: 132.0000</p>
-    <p>PITCH: 180.0000</p>
-    <p>YAW: 321.0000</p>
+    <p id="roll">ROLL</p>
+    <p id="pitch">PITCH</p>
+    <p id="yaw">YAW</p>
     </div>
   </div>
   <div id="txt"></div>
