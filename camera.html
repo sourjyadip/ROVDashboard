@@ -1,0 +1,205 @@
+<html>
+<head>
+  <title>ROV Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    <script src="speedometer.js"></script>
+
+
+</head>
+<body onload="startTime(); draw(0);">
+  <!--
+  <script>
+    // 1. Require the installed module
+    const customTitlebar = require('custom-electron-titlebar');
+
+    // 2. Create the custom titlebar with your own settings
+    //    To make it work, we just need to provide the backgroundColor property
+    //    Other properties are optional.
+    let MyTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex('#000000'),
+        shadow: true,
+    });
+    MyTitleBar.updateTitle('IXAR ROV Dashboard');
+  </script>
+-->
+<nav class="navigation-bar">
+  <!--<img class="logo" src="logo.png">-->
+  <a href="connect.html">CONNECT</a>
+  <a href="calib.html">THRUSTER CONFIG</a>
+  <a href="index.html">NAVIGATION</a>
+
+  <div class="dropdown">
+ <button class="dropbtn">VEHICLE SUMMARY</button>
+ <div class="dropdown-content">
+   <a href="summary.html">NETWORK SETUP</a>
+   <a href="sensorsummary.html">SUMMARY</a>
+   <a href="lights.html">LIGHTS</a>
+   <a class="active" href="camera.html">CAMERA SETUP</a>
+ </div>
+</nav>
+<h4 style="text-align:center">Camera Setup</h4>
+  <h4>Camera Mount Tilt Speed</h4>
+<div class="container">
+  <div class="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+</div>
+</div>
+<h4> Gimbal Tilt </h4>
+<div class="container">
+
+  <form>
+  <p>  <label for="name">Servo PWM Limits</label>
+    <input type="text" id="min" name="min" placeholder="Enter Minimum PWM">
+  <input type="text" id="max" name="max" placeholder="Enter Maximum PWM ">
+</p>
+<p>  <label for="name">Gimbal Angle Limits</label>
+  <input type="text" id="gmin" name="gmin" placeholder="Enter Minimum CDEG">
+<input type="text" id="gmax" name="gmax" placeholder="Enter Maximum CDEG ">
+</p>
+<label for="output">Output Channel</label>
+<select id="output" name="output">
+  <option value="0">Disabled</option>
+  <option value="5">Channel 5</option>
+  <option value="6">Channel 6</option>
+    <option value="7">Channel 7</option>
+    <option value="8">Channel 8</option>
+    <option value="9">Channel 9</option>
+    <option value="10">Channel 10</option>
+    <option value="11">Channel 11</option>
+    <option value="12">Channel 12</option>
+    <option value="13">Channel 13</option>
+    <option value="14">Channel 14</option>
+</select>
+
+<input type="checkbox" id="servoreverse" name="servoreverse" value="servoreverse">
+<label for="servoreverse">Servo Reverse</label><br>
+<input type="checkbox" id="stabilize" name="stabilize" value="stabilize">
+<label for="stabilize">Stabilize</label><br>
+
+
+</form>
+</div>
+<h4> Gimbal Roll</h4>
+<div class="container">
+
+  <form>
+  <p>  <label for="name">Servo PWM Limits</label>
+    <input type="text" id="min" name="min" placeholder="Enter Minimum PWM">
+  <input type="text" id="max" name="max" placeholder="Enter Maximum PWM ">
+</p>
+<p>  <label for="name">Gimbal Angle Limits</label>
+  <input type="text" id="gmin" name="gmin" placeholder="Enter Minimum CDEG">
+<input type="text" id="gmax" name="gmax" placeholder="Enter Maximum CDEG ">
+</p>
+<label for="output">Output Channel</label>
+<select id="output" name="output">
+  <option value="0">Disabled</option>
+  <option value="5">Channel 5</option>
+  <option value="6">Channel 6</option>
+    <option value="7">Channel 7</option>
+    <option value="8">Channel 8</option>
+    <option value="9">Channel 9</option>
+    <option value="10">Channel 10</option>
+    <option value="11">Channel 11</option>
+    <option value="12">Channel 12</option>
+    <option value="13">Channel 13</option>
+    <option value="14">Channel 14</option>
+</select>
+
+<input type="checkbox" id="servoreverse" name="servoreverse" value="servoreverse">
+<label for="servoreverse">Servo Reverse</label><br>
+<input type="checkbox" id="stabilize" name="stabilize" value="stabilize">
+<label for="stabilize">Stabilize</label><br>
+
+
+</form>
+</div>
+<h4> Gimbal Pan</h4>
+<div class="container">
+
+  <form>
+  <p>  <label for="name">Servo PWM Limits</label>
+    <input type="text" id="min" name="min" placeholder="Enter Minimum PWM">
+  <input type="text" id="max" name="max" placeholder="Enter Maximum PWM ">
+</p>
+<p>  <label for="name">Gimbal Angle Limits</label>
+  <input type="text" id="gmin" name="gmin" placeholder="Enter Minimum CDEG">
+<input type="text" id="gmax" name="gmax" placeholder="Enter Maximum CDEG ">
+</p>
+<label for="output">Output Channel</label>
+<select id="output" name="output">
+  <option value="0">Disabled</option>
+  <option value="5">Channel 5</option>
+  <option value="6">Channel 6</option>
+    <option value="7">Channel 7</option>
+    <option value="8">Channel 8</option>
+    <option value="9">Channel 9</option>
+    <option value="10">Channel 10</option>
+    <option value="11">Channel 11</option>
+    <option value="12">Channel 12</option>
+    <option value="13">Channel 13</option>
+    <option value="14">Channel 14</option>
+</select>
+
+<input type="checkbox" id="servoreverse" name="servoreverse" value="servoreverse">
+<label for="servoreverse">Servo Reverse</label><br>
+<input type="checkbox" id="stabilize" name="stabilize" value="stabilize">
+<label for="stabilize">Stabilize</label><br>
+
+
+</form>
+</div>
+<h4 style="text-align:center">Gimbal Settings</h4>
+<div class="container">
+
+
+  <form>
+
+
+<!-- <input type="text" id="fname" name="firstname" placeholder="Your name..">
+-->
+
+
+    <label for="type">Type</label>
+    <select id="type" name="type">
+      <option value="1">None</option>
+      <option value="2">Servo</option>
+      <option value="3">3DR Solo</option>
+        <option value="4">Alexmos Solo</option>
+        <option value="5">SToRM32 Mavlink</option>
+        <option value="6">SToRM32 Serial</option>
+  </select>
+  <label for="mode">Default mode</label>
+  <select id="mode" name="mode">
+    <option value="1">Rwtracted</option>
+    <option value="2">Neutral</option>
+    <option value="3">RC Targeting</option>
+      <option value="4">Mavlink Targeting</option>
+      <option value="5">GPS Point</option>
+</select>
+</form>
+</div>
+<div class="container">
+  <form>
+  <input type="submit" value="Submit" >
+</form>
+</div>
+</body>
+</html>
