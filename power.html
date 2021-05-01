@@ -1,0 +1,159 @@
+<html>
+<head>
+  <title>ROV Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    <script src="speedometer.js"></script>
+
+
+</head>
+<body onload="startTime(); draw(0);">
+  <!--
+  <script>
+    // 1. Require the installed module
+    const customTitlebar = require('custom-electron-titlebar');
+
+    // 2. Create the custom titlebar with your own settings
+    //    To make it work, we just need to provide the backgroundColor property
+    //    Other properties are optional.
+    let MyTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex('#000000'),
+        shadow: true,
+    });
+    MyTitleBar.updateTitle('IXAR ROV Dashboard');
+  </script>
+-->
+<nav class="navigation-bar">
+  <!--<img class="logo" src="logo.png">-->
+  <a href="connect.html">CONNECT</a>
+  <a href="calib.html">THRUSTER CONFIG</a>
+  <a href="index.html">NAVIGATION</a>
+
+  <div class="dropdown">
+ <button class="dropbtn">VEHICLE SUMMARY</button>
+ <div class="dropdown-content">
+   <a href="summary.html">NETWORK SETUP</a>
+   <a href="sensorsummary.html">SUMMARY</a>
+   <a href="lights.html">LIGHTS</a>
+  <a href="camera.html">CAMERA SETUP</a>
+   <a class="active" href="power.html">POWER SETUP</a>
+ </div>
+</nav>
+<h4 style="text-align:center">Power Setup</h4>
+
+<div id="third">
+<div class="header"><p><em>Battery 1</em></p></div>
+  <form>
+  <p>  <label for="min">Battery Capacity</label>
+    <input type="text" id="min" name="min" placeholder="Enter in mAH">
+    <label for="max">Minimum Arming Voltage</label>
+  <input type="text" id="max" name="max" placeholder="Enter Voltage ">
+</p>
+
+<label for="batterymonitor">Battery monitor</label>
+<select id="batterymonitor" name="batterymonitor">
+  <option value="0">Disabled</option>
+  <option value="1">Analog Voltage</option>
+  <option value="2">Analog Voltage and Current</option>
+    <option value="3">Solo</option>
+    <option value="4">Bebop</option>
+    <option value="5">SMBus-Maxell</option>
+    <option value="6">UAVCAN-BatteryInfo</option>
+</select>
+<label for="powermonitor">Power monitor</label>
+<select id="powermonitor" name="powermonitor">
+  <option value="0">Power Module 90A</option>
+  <option value="1">Power Module HV</option>
+  <option value="2">3D Iris</option>
+    <option value="3">Blue Robotics Power Sensor</option>
+    <option value="4">Other</option>
+</select>
+<label for="currentpin">Current Pin</label>
+<select id="currentpin" name="currentpin">
+  <option value="0">Disabled</option>
+  <option value="1">Pixhawk/Pixracer</option>
+  <option value="2">Pixhawk2_PM2</option>
+    <option value="3">CubeOrange</option>
+    <option value="4">CubeOrange_PM2</option>
+    <option value="5">PX4-v1</option>
+    <option value="6">Other</option>
+</select>
+<label for="voltagepin">Voltage Pin</label>
+<select id="voltagepin" name="voltagepin">
+  <option value="0">Disabled</option>
+  <option value="1">Pixhawk/Pixracer</option>
+  <option value="2">Pixhawk2_PM2</option>
+    <option value="3">CubeOrange</option>
+    <option value="4">CubeOrange_PM2</option>
+    <option value="5">PX4-v1</option>
+    <option value="6">Other</option>
+</select>
+</form>
+</div>
+<div id="third">
+<div class="header"><p><em>Battery 2</em></p></div>
+  <form>
+  <p>  <label for="min">Battery Capacity</label>
+    <input type="text" id="min" name="min" placeholder="Enter in mAH">
+    <label for="max">Minimum Arming Voltage</label>
+  <input type="text" id="max" name="max" placeholder="Enter Voltage ">
+</p>
+
+<label for="batterymonitor">Battery monitor</label>
+<select id="batterymonitor" name="batterymonitor">
+  <option value="0">Disabled</option>
+  <option value="1">Analog Voltage</option>
+  <option value="2">Analog Voltage and Current</option>
+    <option value="3">Solo</option>
+    <option value="4">Bebop</option>
+    <option value="5">SMBus-Maxell</option>
+    <option value="6">UAVCAN-BatteryInfo</option>
+</select>
+<label for="powermonitor">Power monitor</label>
+<select id="powermonitor" name="powermonitor">
+  <option value="0">Power Module 90A</option>
+  <option value="1">Power Module HV</option>
+  <option value="2">3D Iris</option>
+    <option value="3">Blue Robotics Power Sensor</option>
+    <option value="4">Other</option>
+</select>
+<label for="currentpin">Current Pin</label>
+<select id="currentpin" name="currentpin">
+  <option value="0">Disabled</option>
+  <option value="1">Pixhawk/Pixracer</option>
+  <option value="2">Pixhawk2_PM2</option>
+    <option value="3">CubeOrange</option>
+    <option value="4">CubeOrange_PM2</option>
+    <option value="5">PX4-v1</option>
+    <option value="6">Other</option>
+</select>
+<label for="voltagepin">Voltage Pin</label>
+<select id="voltagepin" name="voltagepin">
+  <option value="0">Disabled</option>
+  <option value="1">Pixhawk/Pixracer</option>
+  <option value="2">Pixhawk2_PM2</option>
+    <option value="3">CubeOrange</option>
+    <option value="4">CubeOrange_PM2</option>
+    <option value="5">PX4-v1</option>
+    <option value="6">Other</option>
+</select>
+</form>
+</div>
+</body>
+</html>
