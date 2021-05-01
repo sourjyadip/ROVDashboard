@@ -47,6 +47,7 @@ body {background-color: #1d2333;
     text-align: center;
     color: white;
     margin-top: 20px;
+
     float: left;
     background-color: rgb(2, 4, 22);
 }
@@ -288,6 +289,17 @@ form
     height: 350px;
     background-color: rgb(2, 4, 22);
 color: whitesmoke;
+}
+#third {
+    width: 600px;
+    text-align: center;
+    float: left;
+    height: 800px;
+    background-color: rgb(2, 4, 22);
+    margin-right: 20px;
+    color: whitesmoke;
+margin-top: 50px;
+margin-left: 250px;
 }
 #clear {
     clear: both;
