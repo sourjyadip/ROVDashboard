@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>ROV Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    <script src="speedometer.js"></script>
+
+</head>
+<body onload="startTime(); draw(0);">
+
+  <!--
+  <script>
+    // 1. Require the installed module
+    const customTitlebar = require('custom-electron-titlebar');
+
+    // 2. Create the custom titlebar with your own settings
+    //    To make it work, we just need to provide the backgroundColor property
+    //    Other properties are optional.
+    let MyTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex('#000000'),
+        shadow: true,
+    });
+    MyTitleBar.updateTitle('IXAR ROV Dashboard');
+  </script>
+-->
+<nav class="navigation-bar">
+  <!--<img class="logo" src="logo.png">-->
+  <a href="connect.html">CONNECT</a>
+  <a href="calib.html">THRUSTER CONFIG</a>
+  <a href="index.html">NAVIGATION</a>
+
+  <div class="dropdown">
+ <button class="dropbtn">VEHICLE SUMMARY</button>
+ <div class="dropdown-content">
+   <a class="active" href="summary.html">NETWORK SETUP</a>
+   <a href="sensorsummary.html">SUMMARY</a>
+   <a class="active" href="lights.html">LIGHTS</a>
+    <a href="camera.html">CAMERA SETUP</a>
+    <a href="power.html">POWER SETUP</a>
+ </div>
+</nav>
+
+
+<div id="third">
+<div class="header"><p><em>Thruster Test</em></p></div>
+<div class="container">
+  <div class="slidecontainer">
+<p>Thruster1<input type="range"  min="1100" max="1900" value="1500" class="slider" id="myRange"><output></output></p>
+    <p>Thruster2<input type="range" min="1100" max="1900" value="1500" class="slider" id="myRange"><output></output></p>
+    <p>Thruster3<input type="range" min="1100" max="1900" value="1500" class="slider" id="myRange"><output></output></p>
+    <p>Thruster4<input type="range" min="1100" max="1900" value="1500" class="slider" id="myRange"><output></output></p>
+  
+    <img src="simplerov1.png" width="300" height="400"/>
+</div>
+</div>
+</div>
+<div id="first">
+<div class="header"><p><em>Information</em></p></div>
+<p>Each sliding bar represents the range value of each slider. The range between 1100-1499 is moving the thruster anticlockwise. For the range between 1550-1900, the thruster moves clockwise.</p>
+<p>At 1500 the thruster becomes idle, the default value here is 1500</p>
+</div>
+</body>
+</html>
