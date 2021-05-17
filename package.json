@@ -15,6 +15,7 @@
   "dependencies": {
     "custom-electron-titlebar": "^3.2.3",
     "electron-require": "^0.3.0",
+    "jimp": "^0.16.1",
     "rclnodejs": "^0.18.1"
   }
 }

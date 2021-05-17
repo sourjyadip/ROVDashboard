@@ -56,26 +56,21 @@
 </nav>
 <div class="feed">
   <h4>PRIMARY CAMERA FEED </h4>
- <video width="700" height="300" controls>
-  <source src="video1.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+  <canvas id="camera1" width="500" height="320" style="border:1px solid #000000;">
+  </canvas> 
 </div>
 <div class = "feed2">
   <h4>SECONDARY CAMERA FEED </h4>
-  <video width="500" height="320" controls>
-    <source src="video2.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-  </video>
-
+  <canvas id="camera2" width="500" height="320" style="border:1px solid #000000;">
+  </canvas>
 </div>
 <div class="container">
   <div class="orientation-angle">
     <h4>ORIENTATION ANGLES</h4>
     <div class="column1">
-    <p>X: 233.0000</p>
-    <p>Y: 122.0000</p>
-    <p>Z: 213.0000</p>
+    <p id="x">X:</p>
+    <p id="y">Y:</p>
+    <p id="z">Z:</p>
     </div>
     <div class="column2">
     <p id="roll">ROLL</p>
@@ -85,7 +80,7 @@ Your browser does not support the video tag.
   </div>
   <div id="txt"></div>
   <div class="positioning">
-    <p>DEPTH: 82.45m</p>
+    <p id='depth'>DEPTH:</p>
     <p>TEMP: 25.23C</p>
     <p>LATITUDE: 43 23'N</p>
     <p>LONGITUDE: 122 12'E</p>
